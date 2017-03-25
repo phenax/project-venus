@@ -14,12 +14,16 @@ export default class ProfilePage extends React.Component {
 
 				<Navbar />
 
-				<div className='container'>
+				<div className='container' style={{ margin: '2em auto' }}>
 
-					<div class="cover">
-						<img class="user-pic" src={this.props.user.image} height="90px" width="90px" />
-						<h2 class="user-name">{this.props.user.name}</h2>
-						<p class="user-bio">{this.props.user.bio}</p>
+					<div className="cover row">
+						<div className='col-md-4'>
+							<img className="user-pic" src={this.props.user.image} />
+						</div>
+						<div className='col-md-8 text-left'>
+							<h2 className="user-name">{this.props.user.name}</h2>
+							<p className="user-bio">{this.props.user.bio}</p>
+						</div>
 					</div>
 
 				</div>

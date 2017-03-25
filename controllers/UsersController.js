@@ -10,7 +10,7 @@ module.exports= class extends _Controller  {
 			user: {
 				name: 'HGeloasd ',
 				bio: 'HGeloasd AFSFHDGFHJG',
-				image: 'default-profile.png',
+				image: '/img/default-pic.jpg',
 			}
 		});
 	}
