@@ -1,6 +1,8 @@
 
 const _Controller= require('./_Controller');
 
+const Sequelize= require('sequelize');
+
 module.exports= class extends _Controller {
 
 
@@ -18,9 +20,7 @@ module.exports= class extends _Controller {
 						]
 					},
 				],
-				where: {
-					alias: pageAlias
-				}
+				where: { alias: pageAlias }
 			})
 			.then(page => res.render('ReviewPage', { page }));
 	}
