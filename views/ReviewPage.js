@@ -20,9 +20,8 @@ export default class ReactComponent extends React.Component {
 	
 					<div className="jumbotron masthead" style={{ backgroundImage: 'url(/img/bg.jpeg)', 'transform': 'none', 'minHeight': '400px' }}>
 						<div className='masthead__overlay' />
-						<h4 className='masthead__title'>Bootstrap Tutorial</h4>
-						<p className='masthead__content' style={{ fontSize: '.9em' }}>Bootstrap is the most popular HTML, CSS, and JS framework for developing
-						responsive, mobile-first projects on the web.</p> 
+						<h4 className='masthead__title'>{this.props.page.name}</h4>
+						<p className='masthead__content' style={{ fontSize: '.9em' }}>{this.props.page.description}</p> 
 					</div>
 
 					<div className="row">
@@ -38,20 +37,23 @@ export default class ReactComponent extends React.Component {
 								Reviews
 							</div>
 
-							<div className='card'>
-								<div>
-									<div>Hello world</div>
-									<div>@helloworld</div>
+							{this.props.page.reviews.map(review => (
+								<div className='card'>
+									<div className='card__info'>
+										<div>{review.user.name}</div>
+										<div>@{review.user.username}</div>
+									</div>
+									<div>
+										{review.content}
+									</div>
 								</div>
-							</div>
-							<div className='card'>
-								<div>
-									<div>Hello world</div>
-									<div>@helloworld</div>
-								</div>
-							</div>
+							))}
 						</div>
 					</div>
+
+					<br />
+					<br />
+					<br />
 				</div>
 			</Wrapper>
 		);

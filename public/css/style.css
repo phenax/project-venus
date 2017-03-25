@@ -30,6 +30,10 @@ html body * {
 	opacity: .9;
 }
 
+.card__info {
+	padding: 1em .5em;
+}
+
 
 .navbar {
 	z-index: 100;
