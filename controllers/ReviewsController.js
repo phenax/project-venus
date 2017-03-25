@@ -1,19 +1,9 @@
 
+const _Controller= require('./_Controller');
 
-module.exports= class ReviewsController {
+module.exports= class extends _Controller {
 
 
-	constructor(app) {
-
-		for(let i in this) {
-			if(typeof (this[i]) === 'function')
-				this[i]= this[i].bind(this);
-		}
-
-		this.app= app;
-	}
-
-	
 	page(req, res) {
 
 		res.render('ReviewPage');

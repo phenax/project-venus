@@ -1,30 +1,19 @@
 
-module.exports= class IndexController {
+// const Sequelize= require('sequelize');
 
+const _Controller= require('./_Controller');
 
-	constructor(app) {
-
-		for(let i in this) {
-			if(typeof (this[i]) === 'function')
-				this[i]= this[i].bind(this);
-		}
-
-
-		this.app= app;
-	}
-
+module.exports= class IndexController extends _Controller {
 
 	home(req, res) {
 
-		// User check
-		// if(true) {
-			// res.render('DashboardPage');
-		// }
-
-		this.app.get('models')
-			.Users
-			.find()
-			.then(console.log);
+		this.db.models.Page
+			.findAll({
+				include: [
+					{ model: this.db.models.Category },
+				]
+			})
+			.then(pages => res.render('HomePage', { pages }));
 	}
 
 

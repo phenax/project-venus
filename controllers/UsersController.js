@@ -1,19 +1,17 @@
 
-module.exports= class UsersController {
+const _Controller= require('./_Controller');
 
-
-	constructor(app) {
-
-		for(let i in this) {
-			if(typeof (this[i]) === 'function')
-				this[i]= this[i].bind(this);
-		}
-
-		this.app= app;
-	}
+module.exports= class extends _Controller  {
 
 	
-	profile() {
+	profile(req, res) {
 		
+		res.render('ProfilePage', {
+			user: {
+				name: 'HGeloasd ',
+				bio: 'HGeloasd AFSFHDGFHJG',
+				image: 'default-profile.png',
+			}
+		});
 	}
 };
