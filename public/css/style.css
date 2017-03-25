@@ -27,11 +27,22 @@ html body * {
 
 .card__content {
 	font-size: .9em;
+	padding: 1em 0;
 	opacity: .9;
 }
 
 .card__info {
 	padding: 1em .5em;
+}
+
+.card__action {
+	text-align: right;
+	padding: 1em 1em 0;
+	border-top: 1px solid #ddd;
+}
+
+.card__action .btn {
+	margin-left: 1em;
 }
 
 

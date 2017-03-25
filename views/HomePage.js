@@ -7,6 +7,18 @@ import Navbar from './components/Navbar';
 export default class HomePage extends React.Component {
 
 
+	plural(name='') {
+		name= name.toLowerCase();
+
+		if(name.endsWith('s')) {
+			name+= '\'';
+		} else {
+			name+= 's';
+		}
+
+		return name;
+	}
+
 	render() {
 
 		return (
@@ -32,12 +44,18 @@ export default class HomePage extends React.Component {
 
 						{this.props.pages.map(page => (
 							<div className='card'>
-								<div className='card__title'>{page.name}</div>
+								<br />
+								<div className='card__title'>{page.category.name} - {page.name}</div>
 								<div className='card__content'>
-									<div className='text-left'>
-										<span className='label label-primary'>{page.category.name}</span>
-									</div>
 									{page.description}
+								</div>
+								<div className='card__action'>
+									<a href={`/category/${page.category.alias}`} className='btn btn-default btn-sm'>
+										View more {this.plural(page.category.name)}
+									</a>
+									<a href={`/${page.category.alias}/${page.alias}`} className='btn btn-success btn-sm'>
+										Go to review page&nbsp;&nbsp;<i className='fa fa-arrow-right' />
+									</a>
 								</div>
 							</div>
 						))}
