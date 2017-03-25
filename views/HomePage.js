@@ -22,10 +22,28 @@ export default class HomePage extends React.Component {
 
 				<div className='container'>
 
-					<section className='login'>
-						
+					<section className='trending' style={{ padding: '1em' }}>
+
+						<h2>Trending pages</h2>
+
+						{this.props.pages.map(page => (
+							<div className='card'>
+								<div className='card__title'>{page.name}</div>
+								<div className='card__content'>
+									<div className='text-left'>
+										<span className='label label-primary'>{page.category.name}</span>
+									</div>
+									{page.description}
+								</div>
+							</div>
+						))}
+
 					</section>
 
+					<br />
+					<br />
+					<br />
+					<br />
 				</div>
 			</Wrapper>
 		);

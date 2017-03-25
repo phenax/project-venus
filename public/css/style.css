@@ -73,3 +73,39 @@ html body * {
 .masthead__content {
 	font-size: 1em;
 }
+
+
+.search {
+
+}
+
+.search__input {
+	max-width: 300px;
+	width: 100%;
+}
+
+.sidebar  {
+	float:left;
+	width: 200px;
+	position: sticky;
+	margin-right: 20px;
+}
+
+.cover {
+	text-align: center;
+}
+
+.profile-logo {
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.user-name {
+		display: inline-block;
+}
+
+.user-bio {
+		clear: bothl
+}
+
+
