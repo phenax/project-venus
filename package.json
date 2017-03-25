@@ -26,10 +26,13 @@
     "ejs": "^2.5.6",
     "express": "^4.15.2",
     "express-react-views": "^0.10.2",
+    "express-session": "^1.15.1",
     "logger": "^0.0.1",
     "mongoose": "^4.9.1",
     "morgan": "^1.8.1",
     "mysql": "^2.13.0",
+    "passport": "^0.3.2",
+    "passport-google-oauth": "^1.0.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "sequelize": "^3.30.3"

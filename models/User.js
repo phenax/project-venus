@@ -7,6 +7,6 @@ module.exports= (sequelize) => (
 		username: Sequelize.STRING,
 		image: Sequelize.STRING,
 		email: Sequelize.STRING,
-		password: Sequelize.STRING,
+		googleId: Sequelize.STRING,
 	})
 );

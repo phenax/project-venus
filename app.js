@@ -14,6 +14,7 @@ db.models.Review= require('./models/Review')(sequleize);
 db.models.Category= require('./models/Category')(sequleize);
 
 
+// Models Relations
 db.models.Category.hasOne(db.models.Page, { foreignKey: 'categoryId' });
 
 db.models.Page.belongsTo(db.models.Category);
@@ -23,6 +24,13 @@ db.models.Page.hasMany(db.models.Review, { foreignKey: 'pageId' });
 db.models.User.hasOne(db.models.Review, { foreignKey: 'userId' });
 
 db.models.Review.belongsTo(db.models.User);
+
+
+
+
+// OAuth config
+
+require('./config/auth/passport')(db);
 
 
 
@@ -45,6 +53,13 @@ app.get('/', (req, res, next) => indexController.home(req, res, next));
 
 app.get('/user', (req, res, next) => usersController.profile(req, res, next));
 app.get('/user/:user_id', (req, res, next) => usersController.profile(req, res, next));
+
+app.get('/auth/google', (req, res, next) => usersController.authenticate(req, res, next));
+app.get(
+	'/auth/google/callback',
+	(req, res, next) => usersController.authCallback(req, res, next),
+	(_, res) => res.redirect('/')
+);
 
 app.get('/:category?/:subject?', (req, res, next) => reviewsController.page(req, res, next));
 
