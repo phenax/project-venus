@@ -4,13 +4,22 @@ import React from 'react';
 
 export default class Navbar extends React.Component {
 
-	constructor(props) {
-		super(props);
-
-
-	}
-
 	render() {
+
+		let sidebar= (
+			<ul className="nav navbar-nav navbar-right">
+				<li><a href='/auth/google'>Login with google</a></li>
+			</ul>
+		);
+
+		if(this.props.request.isAuthenticated()) {
+			sidebar= (
+				<ul className="nav navbar-nav navbar-right">
+					<li><a href='/me'>{this.props.request.user.name}</a></li>
+					<li><a href='/logout'>Logout</a></li>
+				</ul>
+			);
+		}
 
 		return (
 			<div className='header'>
@@ -38,7 +47,9 @@ export default class Navbar extends React.Component {
 								</div>
 								<button type="submit" className="btn btn-default search__btn">Submit</button>
 							</form>
+							{sidebar}
 						</div>
+
 					</div>
 				</nav>
 			</div>

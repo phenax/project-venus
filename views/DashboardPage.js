@@ -18,10 +18,6 @@ export default class HomePage extends React.Component {
 					<div className='masthead__overlay' />
 					<h2 className='masthead__title'>Venus</h2>
 					<p className='masthead__content'>Receding camera engine j-pop papier-mache ablative dissident apophenia</p>
-					<a href="/auth/google" className="btn btn-danger" style={{ textShadow: 'none' }}>
-						<span className="fa fa-google-plus"></span>
-						&nbsp;&nbsp;&nbsp;&nbsp;Sign up with Google
-					</a>
 				</div>
 
 				<div className='container'>

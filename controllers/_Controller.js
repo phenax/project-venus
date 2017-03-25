@@ -1,22 +1,14 @@
 
+const autoBind= require('auto-bind');
+
 module.exports= class _Controller {
 
 	constructor(app, db) {
 
-		this.autoBind();
+		autoBind(this);
 
 		this.db= db;
 		this.app= app;
 	}
-
-	autoBind() {
-		for(let i in this) {
-			if(typeof(this[i]) === 'function') {
-				console.log(i);
-				this[i]= this[i].bind(this);
-			}
-		}
-	}
-
 
 };

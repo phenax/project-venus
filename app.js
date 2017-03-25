@@ -51,22 +51,25 @@ const reviewsController= new ReviewsCtrl(app, db);
 
 // Middleware to redirect if the user isnt logged in
 const isLoggedIn=
-	(req, res, next) => (req.isAuthenticated)?  next(): res.redirect('/');
+	(req, res, next) => (req.isAuthenticated())?  next(): res.redirect('/');
 
 
 app.get('/', indexController.home);
 
-app.get('/user', isLoggedIn, usersController.profile);
-app.get('/user/:user_id', usersController.profile);
-
-app.get('/:category?/:subject?', reviewsController.page);
-
 app.get('/auth/google', usersController.authenticate);
 app.get('/auth/google/callback', usersController.authCallback, usersController.redirect);
 
+app.get('/me', isLoggedIn, usersController.profile);
+app.get('/user/:user_id', usersController.profile);
+app.get('/logout', usersController.logout);
+
+app.get('/:category?/:subject?', reviewsController.page);
+app.get('/api/pages/search', reviewsController.search);
 
 
 
+
+// Error handlers
 
 // If err, next err
 app.use(function(req, res, next) {

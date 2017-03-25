@@ -35,7 +35,7 @@ module.exports= class extends _Controller  {
 
 		this.db.models.User
 			.find({ id })
-			.then(user => res.render('ProfilePage', { user }));
+			.then(user => res.render('ProfilePage', { user, request: req }));
 	}
 
 

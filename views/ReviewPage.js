@@ -9,7 +9,7 @@ export default class ReactComponent extends React.Component {
 		return (
 			<Wrapper title='Reviews'>
 
-				<Navbar />
+				<Navbar request={this.props.request} />
 
 
 				<div className="container">

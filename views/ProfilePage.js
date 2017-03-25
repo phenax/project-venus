@@ -12,7 +12,7 @@ export default class ProfilePage extends React.Component {
 		return (
 			<Wrapper title='Reviews'>
 
-				<Navbar />
+				<Navbar request={this.props.request} />
 
 				<div className='container' style={{ margin: '2em auto' }}>
 
