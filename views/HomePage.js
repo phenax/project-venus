@@ -45,7 +45,9 @@ export default class HomePage extends React.Component {
 						{this.props.pages.map(page => (
 							<div className='card'>
 								<br />
-								<div className='card__title'>{page.category.name} - {page.name}</div>
+								<div className='card__title'>
+									{page.category.name} - {page.name}
+								</div>
 								<div className='card__content'>
 									{page.description}
 								</div>

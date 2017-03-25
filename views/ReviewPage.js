@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 export default class ReactComponent extends React.Component {
 	
 	render() {
+
 		return (
 			<Wrapper title='Reviews'>
 
