@@ -83,10 +83,26 @@ html body * {
 
 }
 
-.search__input {
-	max-width: 300px;
-	width: 100%;
+.search__input-wrapper {
+	width: 400px;
 }
+
+.search .search__input {
+	width: 100%;
+	border-radius: 4px 0 0 4px;
+	outline: none;
+	border: none;
+	background-color: rgba(0,0,0,.2);
+	color: #ddd;
+}
+
+.search__btn {
+	outline: none;
+	border: none;
+	border-radius: 0 4px 4px 0;
+	background-color: rgba(255,255,255,.1);
+}
+
 
 .sidebar  {
 	float:left;

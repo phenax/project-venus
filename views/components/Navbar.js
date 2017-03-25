@@ -6,14 +6,14 @@ export default class Navbar extends React.Component {
 
 	render() {
 
-		let sidebar= (
+		let navbarActions= (
 			<ul className="nav navbar-nav navbar-right">
 				<li><a href='/auth/google'>Login with google</a></li>
 			</ul>
 		);
 
 		if(this.props.request.isAuthenticated()) {
-			sidebar= (
+			navbarActions= (
 				<ul className="nav navbar-nav navbar-right">
 					<li><a href='/me'>{this.props.request.user.name}</a></li>
 					<li><a href='/logout'>Logout</a></li>
@@ -23,31 +23,41 @@ export default class Navbar extends React.Component {
 
 		return (
 			<div className='header'>
+
 				<nav className="navbar navbar-default" style={{ 'borderRadius': '0', 'boxShadow': '0 1px 5px 1px rgba(0,0,0,.3)' }}>
+
 					<div className="container-fluid">
+
 						<div className="navbar-header">
-							<button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+
+							<button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav-bar">
 								<span className="sr-only">Toggle navigation</span>
 								<span className="icon-bar"></span>
 								<span className="icon-bar"></span>
 								<span className="icon-bar"></span>
 							</button>
-							<a className="navbar-brand" href="#">Venus</a>
+
+							<a className="navbar-brand" href="/">
+								<i className='fa fa-globe fa-lg' style={{ opacity: '.5', padding: '0 .5em 0 .3em' }} />
+							</a>
+
 						</div>
 
-						<div className="collapse navbar-collapse search" id="bs-example-navbar-collapse-1">
-							<form className="navbar-form navbar-left" role="search">
-								<div className="form-group">
+						<div className="collapse navbar-collapse search" id="collapsable-nav-bar">
+
+							<form className="navbar-form navbar-left" role="search" style={{ width: 'auto' }}>
+
+								<div className="form-group search__input-wrapper">
 									<input className="form-control search__input" placeholder="Search" type="text" />
-									<select className="form-control dropdown search__select">
-										<option value="movie">Movie</option>
-										<option value="restaurants">Restaurants</option>
-										<option value="something">Something</option>
-									</select>
 								</div>
-								<button type="submit" className="btn btn-default search__btn">Submit</button>
+
+								<button type="submit" className="btn btn-default search__btn"><i className='fa fa-search'></i></button>
+
 							</form>
-							{sidebar}
+
+							{/* Navigation bar actions(right) */}
+							{navbarActions}
+
 						</div>
 
 					</div>
