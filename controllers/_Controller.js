@@ -11,8 +11,10 @@ module.exports= class _Controller {
 
 	autoBind() {
 		for(let i in this) {
-			if(typeof (this[i]) === 'function')
+			if(typeof(this[i]) === 'function') {
+				console.log(i);
 				this[i]= this[i].bind(this);
+			}
 		}
 	}
 

@@ -49,20 +49,41 @@ const reviewsController= new ReviewsCtrl(app, db);
 
 // Routes
 
-app.get('/', (req, res, next) => indexController.home(req, res, next));
+// Middleware to redirect if the user isnt logged in
+const isLoggedIn=
+	(req, res, next) => (req.isAuthenticated)?  next(): res.redirect('/');
 
-app.get('/user', (req, res, next) => usersController.profile(req, res, next));
-app.get('/user/:user_id', (req, res, next) => usersController.profile(req, res, next));
 
-app.get('/auth/google', (req, res, next) => usersController.authenticate(req, res, next));
-app.get(
-	'/auth/google/callback',
-	(req, res, next) => usersController.authCallback(req, res, next),
-	(_, res) => res.redirect('/')
-);
+app.get('/', indexController.home);
 
-app.get('/:category?/:subject?', (req, res, next) => reviewsController.page(req, res, next));
+app.get('/user', isLoggedIn, usersController.profile);
+app.get('/user/:user_id', usersController.profile);
 
+app.get('/:category?/:subject?', reviewsController.page);
+
+app.get('/auth/google', usersController.authenticate);
+app.get('/auth/google/callback', usersController.authCallback, usersController.redirect);
+
+
+
+
+
+// If err, next err
+app.use(function(req, res, next) {
+	var err = new Error('Not Found');
+	err.status = 404;
+	next(err);
+});
+
+if (app.get('env') === 'development') {
+	app.use(function(err, req, res) {
+		res.status(err.status || 500);
+		res.render('ErrorPage', {
+			message: err.message,
+			error: err
+		});
+	});
+}
 
 
 module.exports= app;

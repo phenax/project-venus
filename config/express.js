@@ -22,7 +22,7 @@ module.exports= (app, dirname) => {
 	app.use(cookieParser());
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({ extended: false }));
-	app.use(session({ secret: 'jgsjf si8ywbc3' }));
+	app.use(session({ secret: 'jgsjfsi8ywbc3' }));
 
 	app.use(passport.initialize());
 	app.use(passport.session());
