@@ -16,10 +16,10 @@ module.exports= class ReviewsController {
 	
 	page(req, res) {
 
-		res.send(JSON.stringify(req.params));
+		res.render('ReviewPage');
 	}
 
-	
+
 
 };
 

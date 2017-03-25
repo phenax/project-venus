@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Wrapper from './WrapperComponent';
+
 export default class ReactComponent extends React.Component {
 
 	constructor(props) {
@@ -9,9 +11,11 @@ export default class ReactComponent extends React.Component {
 	
 	render() {
 		return (
-			<div className='fooo'>
-			
-			</div>
+			<Wrapper>
+				<div className='fooo'>
+					Hello world
+				</div>
+			</Wrapper>
 		);
 	}
 }

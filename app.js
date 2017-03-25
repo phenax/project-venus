@@ -2,7 +2,9 @@
 const express= require('express');
 
 const app= express();
-require('./config/express')(app);
+require('./config/express')(app, __dirname);
+require('./config/db')();
+// require('')
 
 
 const IndexCtrl= require('./controllers/IndexController');
