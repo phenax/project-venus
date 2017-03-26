@@ -4,7 +4,12 @@
   "description": "__",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon ./server/www"
+    "start": "node ./server/www",
+    "start:w": "nodemon ./server/www"
+  },
+  "engines": {
+    "node": "7.4.0",
+    "npm": "4.0.5"
   },
   "repository": {
     "type": "git",
