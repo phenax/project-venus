@@ -15,13 +15,13 @@ db.models.Category= require('./models/Category')(sequleize);
 
 
 // Models Relations
-db.models.Category.hasOne(db.models.Page, { foreignKey: 'categoryId' });
+db.models.Category.hasMany(db.models.Page, { foreignKey: 'categoryId' });
 
 db.models.Page.belongsTo(db.models.Category);
 db.models.Review.belongsTo(db.models.Page);
 
 db.models.Page.hasMany(db.models.Review, { foreignKey: 'pageId' });
-db.models.User.hasOne(db.models.Review, { foreignKey: 'userId' });
+db.models.User.hasMany(db.models.Review, { foreignKey: 'userId' });
 
 db.models.Review.belongsTo(db.models.User);
 
@@ -63,8 +63,10 @@ app.get('/me', isLoggedIn, usersController.profile);
 app.get('/user/:user_id', usersController.profile);
 app.get('/logout', usersController.logout);
 
-app.get('/:category?/:subject?', reviewsController.page);
 app.get('/api/pages/search', reviewsController.search);
+
+app.get('/category/:category', reviewsController.category);
+app.get('/page/:category?/:subject?', reviewsController.page);
 
 
 

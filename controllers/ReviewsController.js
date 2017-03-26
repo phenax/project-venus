@@ -11,19 +11,62 @@ module.exports= class extends _Controller {
 
 		const pageAlias= req.params.subject;
 
+		console.log(pageAlias);
+
 		this.db.models.Page
 			.find({
 				include: [
 					{
 						model: this.db.models.Review,
-						include: [
-							{ model: this.db.models.User }
+						include: [ { model: this.db.models.User } ],
+						attributes: [
+							'id', 'createdAt', 'content', 'userId', 'pageId', 'rating',
+							[
+								this.db.sequleize.fn(
+									'date_format',
+									this.db.sequleize.col('reviews.createdAt'),
+									'%d-%m-%Y'
+								), 
+								'createdAtFormatted'
+							]
 						]
 					},
 				],
+				// attributes: [
+				// 	'id', 'name', 'alias', 'description', 'createdAt', 'categoryId',
+				// 	[
+				// 		this.db.sequleize.fn(
+				// 			'AVG',
+				// 			this.db.sequleize.col('`reviews`.`id`')
+				// 		),
+				// 		'numberOfReviews'
+				// 	]
+				// ],
 				where: { alias: pageAlias }
 			})
-			.then(page => res.render('ReviewPage', { page }))
+			.then(page => {
+
+				if(page) {
+					return res.render('ReviewPage', { page, request: req });
+				}
+
+				return next(new Error('The link is broken.'));
+			})
+			.catch(e => next(e));
+	}
+
+
+
+	category(req, res, next) {
+
+		const categoryAlias= req.params.category;
+
+		this.db.models.Category
+			.find({
+				where: { alias: categoryAlias, },
+				include: [ { model: this.db.models.Page } ]
+			})
+			.then(category => res.render('CategoryPage', { category, request: req }))
 			.catch(e => next(e));
 	}
 
@@ -59,6 +102,13 @@ module.exports= class extends _Controller {
 			})
 			.then(pages => res.json({ pages }))
 			.catch(e => next(e));
+	}
+
+
+
+	addReview() {
+
+		
 	}
 
 };

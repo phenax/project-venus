@@ -35,6 +35,10 @@ html body * {
 	padding: 1em .5em;
 }
 
+.card__info__img {
+	width: 60px;
+}
+
 .card__action {
 	text-align: right;
 	padding: 1em 1em 0;

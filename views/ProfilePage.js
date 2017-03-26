@@ -26,6 +26,46 @@ export default class ProfilePage extends React.Component {
 						</div>
 					</div>
 
+					<div style={{ padding: '1em' }}>
+
+						<h2>Reviews by user</h2>
+
+						{this.props.user.reviews
+							.map(review => {
+
+								review.className= 'text-success';
+
+								if(review.rating < 2) {
+									review.className= 'text-danger';
+								} else if(review.rating < 5) {
+									review.className= 'text-warning';
+								} else if(review.rating < 7) {
+									review.className= 'text-info';
+								}
+
+								return review;
+							})
+							.map(review => (
+								<div className='card'>
+									<div className='card__info'>
+										<div className='row'>
+											<div className='col-md-9'>
+												<div className='text-primary text-uppercase'>
+													<strong>{review.page.name}</strong>
+												</div>
+												<div className='text-muted'>{review.dataValues.createdAtFormatted}</div>
+											</div>
+											<h3 className={`col-md-3 text-right ${review.className}`} style={{ margin: '0' }}>
+												{review.rating}/10
+											</h3>
+										</div>
+									</div>
+									<div className='card__content'>{review.content}</div>
+								</div>
+							)
+						)}
+					</div>
+
 				</div>
 
 				<br />

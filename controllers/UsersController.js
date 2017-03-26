@@ -34,7 +34,26 @@ module.exports= class extends _Controller  {
 		const id= req.params.user_id? req.params.user_id: req.user.id;
 
 		this.db.models.User
-			.find({ id })
+			.find({
+				where: { id },
+				include: [
+					{
+						model: this.db.models.Review,
+						include: [ { model: this.db.models.Page } ],
+						attributes: [
+							'createdAt', 'content', 'userId', 'pageId', 'rating',
+							[
+								this.db.sequleize.fn(
+									'date_format',
+									this.db.sequleize.col('reviews.createdAt'),
+									'%d-%m-%Y'
+								),
+								'createdAtFormatted'
+							]
+						],
+					}
+				]
+			})
 			.then(user => res.render('ProfilePage', { user, request: req }));
 	}
 

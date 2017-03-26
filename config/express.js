@@ -13,11 +13,13 @@ const reactEngine= require('express-react-views');
 
 module.exports= (app, dirname) => {
 
-	app.set('views', path.join(dirname, 'views'));
-	app.set('view engine', 'js');
-	app.engine('js', reactEngine.createEngine());
-
+	app.use(compress());
 	app.use(express.static(path.join(dirname, 'public')));
+
+	app.set('views', path.join(dirname, 'views'));
+	app.engine('js', reactEngine.createEngine());
+	app.set('view engine', 'js');
+
 
 	app.use(cookieParser());
 	app.use(bodyParser.json());
@@ -29,5 +31,4 @@ module.exports= (app, dirname) => {
 
 	app.disable('x-powered-by');
 	app.use(logger('dev'));
-	app.use(compress());
 };
