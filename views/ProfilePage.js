@@ -49,12 +49,14 @@ export default class ProfilePage extends React.Component {
 								<div className='card'>
 									<div className='card__info'>
 										<div className='row'>
-											<div className='col-md-9'>
-												<div className='text-primary text-uppercase'>
-													<strong>{review.page.name}</strong>
+											<a href={`/${review.page.category.alias}/${review.page.alias}`}>
+												<div className='col-md-9'>
+													<div className='text-primary text-uppercase'>
+														<strong>{review.page.name}</strong>
+													</div>
+													<div className='text-muted'>{review.dataValues.createdAtFormatted}</div>
 												</div>
-												<div className='text-muted'>{review.dataValues.createdAtFormatted}</div>
-											</div>
+											</a>
 											<h3 className={`col-md-3 text-right ${review.className}`} style={{ margin: '0' }}>
 												{review.rating}/10
 											</h3>

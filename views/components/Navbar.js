@@ -38,7 +38,8 @@ export default class Navbar extends React.Component {
 							</button>
 
 							<a className="navbar-brand" href="/">
-								<i className='fa fa-globe fa-lg' style={{ opacity: '.5', padding: '0 .5em 0 .3em' }} />
+								{/*<i className='fa fa-globe fa-lg' style={{ opacity: '.5', padding: '0 .5em 0 .3em' }} />*/}
+								<span style={{ padding: '0 .5em 0 .3em' }}>Project Venus</span>
 							</a>
 
 						</div>

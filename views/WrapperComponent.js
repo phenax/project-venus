@@ -1,6 +1,8 @@
 
 import React from 'react';
 
+import Footer from './components/Footer';
+
 export default ({ title, children }) => (
 	<html>
 		<head>
@@ -14,6 +16,7 @@ export default ({ title, children }) => (
 			<div className='render-hook'>
 				{children}
 			</div>
+			<Footer />
 		</body>
 	</html>
 );

@@ -39,7 +39,12 @@ module.exports= class extends _Controller  {
 				include: [
 					{
 						model: this.db.models.Review,
-						include: [ { model: this.db.models.Page } ],
+						include: [
+							{
+								model: this.db.models.Page,
+								include: [ { model: this.db.models.Category } ],
+							}
+						],
 						attributes: [
 							'createdAt', 'content', 'userId', 'pageId', 'rating',
 							[

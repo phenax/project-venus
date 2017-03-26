@@ -32,39 +32,44 @@ export default class ReactComponent extends React.Component {
 						</div>
 						<div className='col-md-9'>
 
-
-							<div className='card'>
-								<form action='/api/reviews/add' method='POST' className='card__content'>
-									<label>Review: </label>
-									<textarea
-										placeholder='Add review'
-										name='content'
-										className='form-control'
-										row='5'
-										style={{ resizeX: 'none' }}
-									/>
-									<br />
-									<div className='row'>
-										<div className='col-md-8'>
-											<label style={{ fontSize: '1.2em', padding: '0 1em' }}>Rating: </label>
-											<select className='form-control' style={{ width: 'auto', display: 'inline-block' }}>
-												{Array(10).fill(1).map((_, i) => (
-													<option value={i + 1}>{i + 1}</option>
-												))}
-											</select>
-										</div>
-										<div className='col-md-4'>
-											<div className='text-right' style={{ padding: '1em 0 0' }}>
-												<button className='btn btn-primary'>Submit</button>
+							{this.props.request.isAuthenticated()? (
+								<div>
+									<div className='card'>
+										<form action='/api/reviews/add' method='GET' className='card__content'>
+											<input type='hidden' name='pageId' value={this.props.page.id} />
+											<label>Review: </label>
+											<textarea
+												placeholder='Add review'
+												name='content'
+												className='form-control'
+												row='5'
+												style={{ resizeX: 'none' }}
+											/>
+											<br />
+											<div className='row'>
+												<div className='col-md-8'>
+													<label style={{ fontSize: '1.2em', padding: '0 1em' }}>Rating: </label>
+													<select name='rating' className='form-control' style={{ width: 'auto', display: 'inline-block' }}>
+														{Array(10).fill(1).map((_, i) => (
+															<option value={i + 1}>{i + 1}</option>
+														))}
+													</select>
+												</div>
+												<div className='col-md-4'>
+													<div className='text-right' style={{ padding: '1em 0 0' }}>
+														<button className='btn btn-primary'>Submit</button>
+													</div>
+												</div>
 											</div>
-										</div>
+										</form>
 									</div>
-								</form>
-							</div>
+
+									<br />
+									<br />
+								</div>
+							): null}
 
 
-							<br />
-							<br />
 
 
 							<div>Reviews</div>

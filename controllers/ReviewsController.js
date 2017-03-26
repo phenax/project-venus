@@ -11,8 +11,6 @@ module.exports= class extends _Controller {
 
 		const pageAlias= req.params.subject;
 
-		console.log(pageAlias);
-
 		this.db.models.Page
 			.find({
 				include: [
@@ -32,16 +30,7 @@ module.exports= class extends _Controller {
 						]
 					},
 				],
-				// attributes: [
-				// 	'id', 'name', 'alias', 'description', 'createdAt', 'categoryId',
-				// 	[
-				// 		this.db.sequleize.fn(
-				// 			'AVG',
-				// 			this.db.sequleize.col('`reviews`.`id`')
-				// 		),
-				// 		'numberOfReviews'
-				// 	]
-				// ],
+				order: 'id DESC',
 				where: { alias: pageAlias }
 			})
 			.then(page => {
@@ -106,9 +95,18 @@ module.exports= class extends _Controller {
 
 
 
-	addReview() {
+	addReview(req, res) {
 
-		
+		const content= req.query.content;
+		const rating= req.query.rating;
+		const pageId= req.query.pageId;
+		const userId= req.user.id || 6;
+
+		this.db.models.Review
+			.create({ content, rating, userId, pageId })
+			.then(() => {
+				res.redirect(req.get('Referrer') || '/');
+			});
 	}
 
 };

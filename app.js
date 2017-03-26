@@ -63,10 +63,12 @@ app.get('/me', isLoggedIn, usersController.profile);
 app.get('/user/:user_id', usersController.profile);
 app.get('/logout', usersController.logout);
 
+app.get('/api/reviews/add', reviewsController.addReview);
 app.get('/api/pages/search', reviewsController.search);
 
 app.get('/category/:category', reviewsController.category);
-app.get('/page/:category?/:subject?', reviewsController.page);
+app.get('/:category?/:subject?', reviewsController.page);
+
 
 
 
