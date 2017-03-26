@@ -8,7 +8,7 @@ export default class ReactComponent extends React.Component {
 	render() {
 
 		return (
-			<Wrapper title='Reviews'>
+			<Wrapper title={`${this.props.page.name} reviews | Venus`}>
 
 				<Navbar request={this.props.request} />
 

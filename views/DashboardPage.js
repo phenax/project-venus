@@ -10,7 +10,7 @@ export default class HomePage extends React.Component {
 	render() {
 
 		return (
-			<Wrapper title='Reviews'>
+			<Wrapper title='Dashboard | Venus'>
 
 				<Navbar request={this.props.request} />
 

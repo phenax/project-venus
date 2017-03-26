@@ -22,7 +22,7 @@ export default class HomePage extends React.Component {
 	render() {
 
 		return (
-			<Wrapper title='Reviews'>
+			<Wrapper title='Home | Venus'>
 
 				<Navbar request={this.props.request} />
 
@@ -38,9 +38,27 @@ export default class HomePage extends React.Component {
 
 				<div className='container'>
 
+					<br />
+
 					<section className='trending' style={{ padding: '1em' }}>
 
-						<h2>Trending pages</h2>
+						<h2>Categories</h2>
+
+						{this.props.categories.map(cat => (
+							<a
+								className='label label-primary'
+								href={`/category/${cat.alias}`}
+								style={{ marginRight: '1em' }}
+							>{cat.name}</a>
+						))}
+
+					</section>
+
+					<br />
+
+					<section className='trending' style={{ padding: '1em' }}>
+
+						<h2>Suggested pages</h2>
 
 						{this.props.pages.map(page => (
 							<div className='card'>

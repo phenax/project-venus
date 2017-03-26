@@ -10,7 +10,7 @@ export default class ProfilePage extends React.Component {
 	render() {
 
 		return (
-			<Wrapper title='Reviews'>
+			<Wrapper title={`${this.props.user.name}'s profile | Venus`}>
 
 				<Navbar request={this.props.request} />
 

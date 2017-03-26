@@ -14,7 +14,9 @@ module.exports= class IndexController extends _Controller {
 						{ model: this.db.models.Category },
 					]
 				})
-				.then(pages => res.render('DashboardPage', { pages, request: req }));
+				.then(pages =>
+					this.getCategories(cats => res.render('DashboardPage', { pages, request: req, categories: cats }))
+				);
 			return;
 		}
 
@@ -24,7 +26,16 @@ module.exports= class IndexController extends _Controller {
 					{ model: this.db.models.Category },
 				]
 			})
-			.then(pages => res.render('HomePage', { pages, request: req }));
+			.then(pages =>
+				this.getCategories(cats => res.render('HomePage', { pages, request: req, categories: cats }))
+			);
+	}
+
+	getCategories(fn) {
+
+		this.db.models.Category
+			.findAll()
+			.then(cats => fn(cats));
 	}
 
 
