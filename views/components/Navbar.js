@@ -46,7 +46,7 @@ export default class Navbar extends React.Component {
 
 						<div className="collapse navbar-collapse search" id="collapsable-nav-bar">
 
-							<form className="navbar-form navbar-left" role="search" style={{ width: 'auto' }}>
+							{/*<form className="navbar-form navbar-left" role="search" style={{ width: 'auto' }}>
 
 								<div className="form-group search__input-wrapper">
 									<input className="form-control search__input" placeholder="Search" type="text" />
@@ -54,7 +54,7 @@ export default class Navbar extends React.Component {
 
 								<button type="submit" className="btn btn-default search__btn"><i className='fa fa-search'></i></button>
 
-							</form>
+							</form>*/}
 
 							{/* Navigation bar actions(right) */}
 							{navbarActions}
