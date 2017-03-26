@@ -2,13 +2,7 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
-
-// Google auth information
-const authConfig= {
-	clientID: '660210099204-uu9hs30rop1u93mbqhuv51a2nuq55v1l.apps.googleusercontent.com',
-	clientSecret: 'TXnaKd_7Dh633fGvutz6aEL-',
-	callbackURL: 'http://localhost:8080/auth/google/callback'
-};
+const authConfig= require('./keys').google;
 
 
 module.exports= (db) => {
