@@ -1,5 +1,7 @@
 
 # Project Venus
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/phenax/project-venus.svg)](https://greenkeeper.io/)
 All in one review portal for movies, restaurants, games, tv shows, products, etc.
 
 <br />
