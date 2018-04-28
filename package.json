@@ -34,19 +34,19 @@
     "express-react-views": "^0.10.2",
     "express-session": "^1.15.1",
     "logger": "^0.0.1",
-    "mongoose": "^4.9.1",
+    "mongoose": "^5.0.16",
     "morgan": "^1.8.1",
     "mysql": "^2.13.0",
-    "passport": "^0.3.2",
+    "passport": "^0.4.0",
     "passport-google-oauth": "^1.0.0",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "sequelize": "^3.30.3"
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "sequelize": "^4.37.6"
   },
   "devDependencies": {
-    "babel-loader": "^6.4.1",
-    "eslint": "^3.18.0",
-    "eslint-plugin-react": "^6.10.3",
-    "webpack": "^2.3.2"
+    "babel-loader": "^7.1.4",
+    "eslint": "^4.19.1",
+    "eslint-plugin-react": "^7.7.0",
+    "webpack": "^4.6.0"
   }
 }
